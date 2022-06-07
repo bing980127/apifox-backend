@@ -3,11 +3,17 @@
 
 import 'egg';
 import ExportLogin from '../../../app/model/login';
+import ExportProject from '../../../app/model/project';
 import ExportRegister from '../../../app/model/register';
+import ExportTeam from '../../../app/model/team';
+import ExportUser from '../../../app/model/user';
 
 declare module 'egg' {
   interface IModel {
     Login: ReturnType<typeof ExportLogin>;
+    Project: ReturnType<typeof ExportProject>;
     Register: ReturnType<typeof ExportRegister>;
+    Team: ReturnType<typeof ExportTeam>;
+    User: ReturnType<typeof ExportUser>;
   }
 }

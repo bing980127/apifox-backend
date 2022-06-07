@@ -8,7 +8,7 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1653723563623_8818';
 
   // add your egg config in here
-  config.middleware = ['errorHandler'];
+  config.middleware = ['errorHandler', 'jwtHandler'];
 
   config.errorHandler = {
     enable: true,
@@ -28,8 +28,7 @@ export default (appInfo: EggAppInfo) => {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
     security: {
       csrf: {
-        ignore: /^\/noauth/,
-        headerName: 'token', // 通过 header 传递 CSRF token 的默认字段为 token
+        enable: false,
       },
     },
   };
@@ -41,6 +40,7 @@ export default (appInfo: EggAppInfo) => {
         url: 'mongodb://127.0.0.1:27017/apifox', // url/db_name
         options: {
           useNewUrlParser: true,
+          useFindAndModify: false,
         },
       },
     },
