@@ -2,6 +2,7 @@
 // Do not modify this file!!!!!!!!!
 
 import 'egg';
+import ExportInterface from '../../../app/model/interface';
 import ExportLogin from '../../../app/model/login';
 import ExportProject from '../../../app/model/project';
 import ExportRegister from '../../../app/model/register';
@@ -10,6 +11,7 @@ import ExportUser from '../../../app/model/user';
 
 declare module 'egg' {
   interface IModel {
+    Interface: ReturnType<typeof ExportInterface>;
     Login: ReturnType<typeof ExportLogin>;
     Project: ReturnType<typeof ExportProject>;
     Register: ReturnType<typeof ExportRegister>;

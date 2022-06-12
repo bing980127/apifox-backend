@@ -1,5 +1,8 @@
 import { Application } from 'egg';
-
+export enum Status {
+  open = 1,
+  closed = 0,
+}
 export default (app: Application) => {
   const mongoose = app.mongoose;
   const { Schema } = mongoose;
@@ -9,12 +12,11 @@ export default (app: Application) => {
         type: String,
         required: true,
       },
-      team: [
-        {
-          ref: 'Team',
-          type: Schema.Types.ObjectId,
-        },
-      ],
+      status: { type: Status, default: Status.open },
+      team: {
+        $ref: 'Team',
+        type: Schema.Types.ObjectId,
+      },
     },
     { versionKey: false },
   );

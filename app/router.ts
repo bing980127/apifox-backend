@@ -28,7 +28,14 @@ export default (app: Application) => {
   router.get('/team/members', controller.team.getMembers);
 
   // 获取项目列表
-  router.get('/project/get', controller.project.create)
+  router.get('/project/get', controller.project.get);
   // 创建项目
-  router.post('/project/create', controller.project.create)
+  router.post('/project/create', controller.project.create);
+  // 修改项目
+  router.post('/project/update', controller.project.update);
+  // 删除项目
+  router.delete('/project', controller.project.delete);
+
+  // 获取项目接口
+  router.get('/interface/get', controller.interface.get);
 };

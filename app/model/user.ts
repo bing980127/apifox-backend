@@ -11,10 +11,11 @@ export default (app: Application) => {
       },
       account: { type: String, required: true },
       introduction: { type: String },
-      team: [{
-        ref: 'Team',
-        type: Schema.Types.ObjectId,
-      }],
+      team: [
+        {
+          type: Schema.Types.ObjectId,
+        },
+      ],
     },
     { versionKey: false },
   );
