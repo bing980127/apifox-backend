@@ -22,6 +22,10 @@ const plugin: EggPlugin = {
     enable: true,
     package: 'egg-cors',
   },
+  qiniu: {
+    enable: true,
+    package: 'qiniu',
+  }
 };
 
 export default plugin;

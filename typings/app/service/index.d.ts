@@ -9,6 +9,7 @@ type AutoInstanceType<T, U = T extends CanExportFunc ? T : T extends AnyFunc ? R
 import ExportInterface from '../../../app/service/interface';
 import ExportProject from '../../../app/service/project';
 import ExportTeam from '../../../app/service/team';
+import ExportUploadFile from '../../../app/service/uploadFile';
 import ExportUser from '../../../app/service/user';
 
 declare module 'egg' {
@@ -16,6 +17,7 @@ declare module 'egg' {
     interface: AutoInstanceType<typeof ExportInterface>;
     project: AutoInstanceType<typeof ExportProject>;
     team: AutoInstanceType<typeof ExportTeam>;
+    uploadFile: AutoInstanceType<typeof ExportUploadFile>;
     user: AutoInstanceType<typeof ExportUser>;
   }
 }

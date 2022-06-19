@@ -5,6 +5,7 @@ import 'egg';
 import ExportInterface from '../../../app/controller/interface';
 import ExportProject from '../../../app/controller/project';
 import ExportTeam from '../../../app/controller/team';
+import ExportUploadFile from '../../../app/controller/uploadFile';
 import ExportUser from '../../../app/controller/user';
 
 declare module 'egg' {
@@ -12,6 +13,7 @@ declare module 'egg' {
     interface: ExportInterface;
     project: ExportProject;
     team: ExportTeam;
+    uploadFile: ExportUploadFile;
     user: ExportUser;
   }
 }

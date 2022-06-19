@@ -16,6 +16,7 @@ export default (app: Application) => {
           type: Schema.Types.ObjectId,
         },
       ],
+      avatar: { type: String },
     },
     { versionKey: false },
   );

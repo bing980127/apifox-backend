@@ -1,6 +1,14 @@
 import { Service } from 'egg';
 import { cryptoFn } from '../core/utils';
 import { pick } from 'lodash';
+
+interface UserInfo {
+  email?: string;
+  account?: string;
+  introduction?: string;
+  avatar?: string;
+}
+
 /**
  * User Service
  */
@@ -88,16 +96,14 @@ export default class User extends Service {
   /**
    * 修改资料
    * @param id - your account's id
-   * @param email - your email
-   * @param account - your account
-   * @param introduction - your introduction
+   * @param body - post request body
    */
-  public async updateUser(id: string, email: string, account: string, introduction: string) {
+  public async updateUser(id: string, body: UserInfo) {
     const { ctx } = this;
-    let userRes = await ctx.model.User.findOneAndUpdate({ _id: id }, { email, account, introduction }, { new: true });
+    let userRes = await ctx.model.User.findOneAndUpdate({ _id: id }, body, { new: true });
     if (!userRes) {
       ctx.throw('资料修改失败');
     }
-    return pick(userRes, ['email', 'account', 'introduction', '_id']);
+    return pick(userRes, ['email', 'account', 'introduction', '_id', 'avatar']);
   }
 }

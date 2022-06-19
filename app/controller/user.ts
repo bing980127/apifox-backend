@@ -50,14 +50,13 @@ export default class UserController extends BaseController {
   // 更新用户资料
   public async updateUser() {
     const { ctx, service } = this;
-    const { email, account, introduction = '' } = ctx.request.body;
     const rule = {
       email: { type: 'string' },
       account: { type: 'string' },
     };
     ctx.validate(rule);
     const { id } = this.user;
-    const res = await service.user.updateUser(id, email, account, introduction);
+    const res = await service.user.updateUser(id, ctx.request.body);
     this.success(res);
   }
 }

@@ -14,7 +14,6 @@ export default (app: Application) => {
       },
       status: { type: Status, default: Status.open },
       team: {
-        $ref: 'Team',
         type: Schema.Types.ObjectId,
       },
     },

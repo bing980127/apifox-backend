@@ -23,6 +23,8 @@ export default (appInfo: EggAppInfo) => {
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
+  config.qiniuUrl = 'rcwtbjuog.bkt.clouddn.com/';
+
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,

@@ -36,6 +36,9 @@ export default (app: Application) => {
   // 删除项目
   router.delete('/project', controller.project.delete);
 
+  // 上传头像--七牛
+  router.post('/upload', controller.uploadFile.updateAvatar);
+
   // 获取项目接口
   router.get('/interface/get', controller.interface.get);
 };
